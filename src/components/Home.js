@@ -25,8 +25,6 @@ class Home extends React.Component {
     Actions.signup();
   };
 
-  //show jon
-
   render(){
       return (
         <View>
