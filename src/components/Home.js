@@ -25,8 +25,7 @@ class Home extends React.Component {
     Actions.signup();
   };
 
-  //SHow Will.
-
+  //show jon
 
   render(){
       return (
