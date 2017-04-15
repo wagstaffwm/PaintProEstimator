@@ -2,6 +2,7 @@ import React from 'react';
 
 import Home from './components/Home';
 import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
 
 import {
   Router,
@@ -18,7 +19,8 @@ class App extends React.Component {
       <Router>
         <Scene key='root' style={{paddingTop: Platform.OS==='ios' ? 64 : 54}}>
           <Scene key='home' component={Home} title='Home'/>
-          <Scene key='signup' component={Signup} title='Signup'/>
+          <Scene key='dashboard' component={Dashboard} title='Dashboard'/>
+          <Scene key='signup' component={Signup} title='Sign up'/>
         </Scene>
       </Router>
     );

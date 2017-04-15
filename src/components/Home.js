@@ -25,6 +25,10 @@ class Home extends React.Component {
     Actions.signup();
   };
 
+  _login(){
+    Actions.dashboard();
+  };
+
   render(){
       return (
         <View>
@@ -34,7 +38,7 @@ class Home extends React.Component {
           </Text>
 
             <TextInput
-              style={styles.nameInput}
+              style={styles.textInput}
               onChangeText={(text) => {
                 this.setState({
                   username: text,
@@ -44,7 +48,7 @@ class Home extends React.Component {
               value={this.state.username}
             />
             <TextInput
-              style={styles.nameInput}
+              style={styles.textInput}
               onChangeText={(text) => {
                 this.setState({
                   password: text,
@@ -74,7 +78,7 @@ var styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center'
   },
-  nameInput: {
+  textInput: {
     height: 40,
     borderWidth: 2,
     fontSize: 12,
