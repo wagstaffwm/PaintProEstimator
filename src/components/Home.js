@@ -13,7 +13,6 @@ import {
 } from 'react-native-router-flux';
 
 
-
 class Home extends React.Component {
 
   state = {

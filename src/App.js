@@ -19,7 +19,7 @@ class App extends React.Component {
       <Router>
         <Scene key='root' style={{paddingTop: Platform.OS==='ios' ? 64 : 54}}>
           <Scene key='home' component={Home} title='Home'/>
-          <Scene key='dashboard' component={Dashboard} title='Dashboard'/>
+          <Scene key='dashboard' component={Dashboard} title='Paint Pro Estimator'/>
           <Scene key='signup' component={Signup} title='Sign up'/>
         </Scene>
       </Router>
