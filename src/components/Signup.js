@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   View,
   Text,
@@ -7,65 +6,60 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-
 import {
   Actions
 } from 'react-native-router-flux'
+import Dashboard from './Dashboard'
+import firebase from 'firebase'
 
 class Signup extends React.Component {
+  constructor(props){
+    super(props)
 
-  state = {
-    firstname: '',
-    lastname: '',
-    username: '',
-    password: '',
-    confirmpassword: '',
-  };
+    this.state = {
+      email: '',
+      password: '',
+      confirmPassword: '',
+    }
 
+    this._register = this._register.bind(this)
+}
   _register(){
-    Actions.dashboard();
-  };
+    if (this.state.password === this.state.confirmPassword) {
+      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      })
+    } else {
+      console.log('Passwords do not match');
+    }
+  }
 
   render(){
         return(
           <View>
 
             <Text style={styles.title}>
-            Create a free account!
+            Create an account!
             </Text>
 
               <TextInput
                 style={styles.textInput}
+                autoCapitalization='none'
+                autoCorrect={false}
                 onChangeText={(text) => {
                   this.setState({
-                    firstname: text,
+                    email: text,
                   });
                 }}
-                placeholder='First name'
-                value={this.state.firstname}
+                placeholder='Email'
+                value={this.state.email}
               />
               <TextInput
                 style={styles.textInput}
-                onChangeText={(text) => {
-                  this.setState({
-                    lastname: text,
-                  });
-                }}
-                placeholder='Last name'
-                value={this.state.lastname}
-              />
-              <TextInput
-                style={styles.textInput}
-                onChangeText={(text) => {
-                  this.setState({
-                    username: text,
-                  });
-                }}
-                placeholder='Username (paintpro@pro.com)'
-                value={this.state.username}
-              />
-              <TextInput
-                style={styles.textInput}
+                autoCapitalization='none'
+                autoCorrect={false}
+                secureTextEntry={true}
                 placeholder='Password'
                 onChangeText={(text) => {
                   this.setState({
@@ -74,20 +68,21 @@ class Signup extends React.Component {
                 }}
                 value={this.state.password}
               />
+
               <TextInput
                 style={styles.textInput}
                 placeholder='Confirm password'
                 onChangeText={(text) => {
                   this.setState({
-                    password: text,
+                    confirmPassword: text,
                   });
                 }}
-                value={this.state.confirmpassword}
+                value={this.state.confirmPassword}
               />
 
             <TouchableOpacity onPress={this._register}>
                 <Text style={styles.submit}>Sign up</Text>
-              </TouchableOpacity>
+            </TouchableOpacity>
 
           </View>
       );

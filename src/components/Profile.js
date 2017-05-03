@@ -19,8 +19,8 @@ class Profile extends React.Component {
           <View>
 
             <Text style={styles.title}>
-            Hello Profile
-          </Text>
+              Hello Profile
+            </Text>
 
           </View>
       );
